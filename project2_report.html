@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Aathi Muthu</strong> — <em>amuthu@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: The rise in global surface temperatures is primarily driven by the increased concentration of carbon dioxide (CO2) in the atmosphere</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="co2_temperature_trends_pos.png" alt="" style="width: 700px; height: 700px;"/>
+          <figcaption>This plot illustrates the increasing trend of global surface temperatures alongside rising CO2 emissions, reinforcing the connection between greenhouse gas accumulation and global warming.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Truncated y-axis on the temperature plot (Score: -1): In order to magnify the change to temperature as carbon emissions increased I trucncated the y-axis. However since small changes to temperature have large impacts it is more justified</li>
+          <li>Two seperate plots (Score: 0.5): Two seperate plots are necessary since the scaling of the axis are largely different </li>
+          <li>Aggreated data into yearly values and total in the world (Score = 2): Since CO2 emissions were seperated by country and industry I aggreated them together to show total impact on the world</li>
+          <li>Use of filled Area (Score 0.5): Shading the area under the CO2 line adds a visual emphasis to the volume of CO2 emissions, which helps to reinforce the message that CO2 emissions are increasing. This visual enhancement serves to make the trend more noticeable.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="co2_temperature_trends.png" alt="" style="width: 1000px; height: 570px;"/>
+          <figcaption>Despite a dramatic decline in CO2 emissions since 1995, surface temperatures have continued to rise, potentially showing that CO2 emission have little impact on surface temperatures.
+
+          </figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Dual y-axis (Score = -2): Having a dual y-axis is usually a deceptive technique since you can scale the axes differently to persuade insights which I did.</li>
+          <li>Used increase in CO2 and temperature instead of cumulative total (Score: -1): By focusing on the annual change, the impact of CO2 emissions might appear less dramatic because it shows just a small incremental increase year by year, while downplaying the overall cumulative trend that would otherwise demonstrate a stronger, more persuasive correlation.</li>
+          <li>Color Scheme (Blue for CO2 and Red for Temperature) Score: 2 (earnest): The color choices (blue for CO2 and red for temperature) are traditional color associations that help intuitively guide the viewer through the data. The use of contrasting colors helps the viewer easily distinguish the two trends.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>The process of designing both visualizations was challenging, as I aimed to craft persuasive arguments for both sides of the proposition. In the supporting visualization, the most effective decision was to amplify the temperature changes by truncating the y-axis. This choice made the warming trend appear more pronounced and emphasized the connection to rising CO2 levels. However, it also made me cautious about potentially exaggerating the magnitude of the temperature change, which could be perceived as misleading.
+
+          On the other hand, designing the counter-argument visualization required more deliberate use of deceptive techniques. The dual y-axis was a deliberate choice to mislead by adjusting the scaling of the axes, which gave the false impression that the relationship between CO2 and temperature was weaker than it actually is. This raised questions for me about the ethical line between persuasive design and manipulation. While such choices can help in communicating a viewpoint more effectively, I had to ensure they didn't completely distort the message. Ultimately, the balance between earnest and deceptive choices is fine, and it made me reflect on how design decisions can be ethical as long as they do not intentionally obscure the truth.
+          
+          Through this exercise, I now define ethical analysis and visualization as a process where the intent behind design choices is clear and transparent. A visualization can be persuasive without being misleading, as long as the data is presented truthfully and contextually. Deceptive techniques, like manipulating axis scales or selectively displaying data, should be used sparingly and with a clear acknowledgment of their potential biases. The challenge lies in making the visualization engaging and insightful without intentionally clouding the message.</p>
+      </section>
+    </main>
+  </body>
+</html>
